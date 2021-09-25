@@ -15,6 +15,7 @@ namespace ContosoUniversity.Infrastructure.Data
         }
 
         public DbSet<Student> Students { get; set; }
+        public DbSet<Enrollment> Enrollments { get; set; }
 
         public async Task<int> SaveChangeAsync()
         {

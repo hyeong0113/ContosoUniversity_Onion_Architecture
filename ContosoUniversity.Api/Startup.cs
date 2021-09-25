@@ -42,6 +42,7 @@ namespace ContosoUniversity.Api
             services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
             services.AddTransient(typeof(IGeneralRepository<>), typeof(GeneralRepository<>));
             services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
             #endregion
 
             services.AddSwaggerGen(c =>
