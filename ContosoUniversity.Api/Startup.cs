@@ -44,7 +44,6 @@ namespace ContosoUniversity.Api
             services.AddScoped<IStudentRepository, StudentRepository>();
             #endregion
 
-
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ContosoUniversity.Api", Version = "v1" });

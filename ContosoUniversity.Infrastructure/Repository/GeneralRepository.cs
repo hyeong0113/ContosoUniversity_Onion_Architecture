@@ -27,7 +27,7 @@ namespace ContosoUniversity.Infrastructure.Repository
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _context.Set<T>().FindAsync(id);
+            return await _context.Set<T>().FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<int> AddAsync(T input)
@@ -45,7 +45,7 @@ namespace ContosoUniversity.Infrastructure.Repository
 
         public async Task DeleteAsync(int id)
         {
-            var found = _context.Set<T>().Find(id);
+            var found = await _context.Set<T>().FirstOrDefaultAsync(x => x.Id == id);
             if (found == null)
             {
                 return;

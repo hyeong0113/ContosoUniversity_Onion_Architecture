@@ -35,5 +35,16 @@ namespace ContosoUniversity.Api.Controllers.Students
             return Ok(await Mediator.Send(new GetByIdStudentQuery { Id = id }));
         }
 
+        [HttpPut]
+        public async Task<IActionResult> Update(UpdateStudentCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(DeleteStudentCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
     }
 }
