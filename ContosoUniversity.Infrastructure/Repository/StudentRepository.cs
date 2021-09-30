@@ -20,11 +20,11 @@ namespace ContosoUniversity.Infrastructure.Repository
 
         public async Task<IEnumerable<Student>> GetAllStudentsWithEnrollments()
         {
-            return await _context.Students.Include(s => s.Enrollments).ToListAsync();
+            return await _context.Students.Include(s => s.Enrollments).AsNoTracking().ToListAsync();
         }
         public async Task<Student> GetStudentByIdWithEnrollments(int id)
         {
-            return await _context.Students.Include(s => s.Enrollments).FirstOrDefaultAsync(s => s.Id == id);
+            return await _context.Students.Include(s => s.Enrollments).AsNoTracking().FirstOrDefaultAsync(s => s.Id == id);
         }
     }
 }

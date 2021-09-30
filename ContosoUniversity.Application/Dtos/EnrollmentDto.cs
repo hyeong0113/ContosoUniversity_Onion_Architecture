@@ -12,5 +12,6 @@ namespace ContosoUniversity.Application.Dtos
         public Grade Grade { get; set; }
 
         public StudentDto Student { get; set; }
+        public CourseDto Course { get; set; }
     }
 }

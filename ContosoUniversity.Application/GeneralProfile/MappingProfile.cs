@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ContosoUniversity.Application.Dtos;
+using ContosoUniversity.Application.Features.Courses.Command;
 using ContosoUniversity.Application.Features.Enrollments.Command;
 using ContosoUniversity.Application.Features.Students.Command;
 using ContosoUniversity.Domain;
@@ -21,6 +22,10 @@ namespace ContosoUniversity.Application.GeneralProfile
             CreateMap<Enrollment, EnrollmentDto>();
             CreateMap<CreateEnrollmentCommand, Enrollment>();
             CreateMap<UpdateEnrollmentCommand, Enrollment>();
+
+            CreateMap<Course, CourseDto>();
+            CreateMap<CreateCourseCommand, Course>();
+            CreateMap<UpdateCourseCommand, Course>();
         }
     }
 }

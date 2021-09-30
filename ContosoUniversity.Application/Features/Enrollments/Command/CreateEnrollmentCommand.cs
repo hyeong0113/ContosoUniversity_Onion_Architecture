@@ -12,6 +12,7 @@ namespace ContosoUniversity.Application.Features.Enrollments.Command
 {
     public class CreateEnrollmentCommand : IRequest<int>
     {
+        public int CourseId { get; set; }
         public int StudentId { get; set; }
         public Grade Grade { get; set; }
 

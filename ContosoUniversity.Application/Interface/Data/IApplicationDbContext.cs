@@ -10,6 +10,8 @@ namespace ContosoUniversity.Application.Interface.Data
     public interface IApplicationDbContext
     {
         DbSet<Student> Students { get; set; }
+        DbSet<Enrollment> Enrollments { get; set; }
+        DbSet<Course> Courses { get; set; }
         Task<int> SaveChangeAsync();
     }
 }
