@@ -1,4 +1,5 @@
-﻿using ContosoUniversity.Application.Interface.Repository;
+﻿using AutoMapper;
+using ContosoUniversity.Application.Interface.Repository;
 using ContosoUniversity.Domain;
 using MediatR;
 using System;
@@ -18,19 +19,18 @@ namespace ContosoUniversity.Application.Features.Enrollments.Command
         public class UpdateEnrollmentCommandHandler : IRequestHandler<UpdateEnrollmentCommand, Unit>
         {
             private readonly IEnrollmentRepository _enrollmentRepository;
+            private readonly IMapper _mapper;
 
-            public UpdateEnrollmentCommandHandler(IEnrollmentRepository enrollmentRepository)
+            public UpdateEnrollmentCommandHandler(IEnrollmentRepository enrollmentRepository, IMapper mapper)
             {
                 _enrollmentRepository = enrollmentRepository;
+                _mapper = mapper;
             }
 
             public async Task<Unit> Handle(UpdateEnrollmentCommand command, CancellationToken cancellationToken)
             {
-                Enrollment enrollment = new Enrollment();
-                enrollment.Id = command.Id;
-                enrollment.StudentId = command.StudentId;
-                enrollment.Grade = command.Grade;
-                await _enrollmentRepository.UpdateAsync(enrollment);
+                Enrollment input = _mapper.Map<Enrollment>(command);
+                await _enrollmentRepository.UpdateAsync(input);
 
                 return Unit.Value;
             }
