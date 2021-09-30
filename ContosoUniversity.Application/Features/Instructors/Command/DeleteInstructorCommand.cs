@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ContosoUniversity.Application.Features.Instructors.Command
 {
-    public class DeleteOfficeAssignmentCommand : IRequest<Unit>
+    public class DeleteInstructorCommand : IRequest<Unit>
     {
         public int Id { get; set; }
 
-        public class DeleteInstructorCommandHandler : IRequestHandler<DeleteOfficeAssignmentCommand, Unit>
+        public class DeleteInstructorCommandHandler : IRequestHandler<DeleteInstructorCommand, Unit>
         {
             private readonly IInstructorRepository _instructorRepository;
 
@@ -21,7 +21,7 @@ namespace ContosoUniversity.Application.Features.Instructors.Command
                 _instructorRepository = instructorRepository;
             }
 
-            public async Task<Unit> Handle(DeleteOfficeAssignmentCommand command, CancellationToken cancellationToken)
+            public async Task<Unit> Handle(DeleteInstructorCommand command, CancellationToken cancellationToken)
             {
                 await _instructorRepository.DeleteAsync(command.Id);
 

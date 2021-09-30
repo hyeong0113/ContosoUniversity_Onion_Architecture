@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace ContosoUniversity.Application.Features.Instructors.Query
 {
-    public class GetAllOfficeAssignmentsQuery : IRequest<IEnumerable<InstructorDto>>
+    public class GetAllInstructorsQuery : IRequest<IEnumerable<InstructorDto>>
     {
-        public class GetAllInstructorsQueryHandler : IRequestHandler<GetAllOfficeAssignmentsQuery, IEnumerable<InstructorDto>>
+        public class GetAllInstructorsQueryHandler : IRequestHandler<GetAllInstructorsQuery, IEnumerable<InstructorDto>>
         {
             private readonly IInstructorRepository _instructorRepository;
             private readonly IMapper _mapper;
@@ -23,7 +23,7 @@ namespace ContosoUniversity.Application.Features.Instructors.Query
                 _mapper = mapper;
             }
 
-            public async Task<IEnumerable<InstructorDto>> Handle(GetAllOfficeAssignmentsQuery query, CancellationToken cancellationToken)
+            public async Task<IEnumerable<InstructorDto>> Handle(GetAllInstructorsQuery query, CancellationToken cancellationToken)
             {
                 var response = await _instructorRepository.GetAllAsync();
 
