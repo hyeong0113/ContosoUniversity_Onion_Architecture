@@ -1,4 +1,5 @@
-﻿using ContosoUniversity.Application.Interface.Repository;
+﻿using AutoMapper;
+using ContosoUniversity.Application.Interface.Repository;
 using ContosoUniversity.Domain;
 using MediatR;
 using System;
@@ -19,21 +20,18 @@ namespace ContosoUniversity.Application.Features.Students.Command
         public class UpdateStudentCommandHandler : IRequestHandler<UpdateStudentCommand, Unit>
         {
             private readonly IStudentRepository _studentRepository;
+            private readonly IMapper _mapper;
 
-            public UpdateStudentCommandHandler(IStudentRepository studentRepository)
+            public UpdateStudentCommandHandler(IStudentRepository studentRepository, IMapper mapper)
             {
                 _studentRepository = studentRepository;
+                _mapper = mapper;
             }
 
             public async Task<Unit> Handle(UpdateStudentCommand command, CancellationToken cancellationToken)
             {
-                Student student = new Student();
-                // Need Automapper
-                student.Id = command.Id;
-                student.LastName = command.LastName;
-                student.FirstName = command.FirstName;
-                student.EnrollmentDate = command.EnrollmentDate;
-                await _studentRepository.UpdateAsync(student);
+                Student input = _mapper.Map<Student>(command);
+                await _studentRepository.UpdateAsync(input);
 
                 return Unit.Value;
             }

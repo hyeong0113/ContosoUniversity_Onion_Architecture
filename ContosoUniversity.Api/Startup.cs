@@ -35,11 +35,14 @@ namespace ContosoUniversity.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddApplication();
 
             #region
             services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+
+            // Add Repositories
             services.AddTransient(typeof(IGeneralRepository<>), typeof(GeneralRepository<>));
             services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
@@ -54,9 +57,6 @@ namespace ContosoUniversity.Api
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
-
-
-            //services.AddScoped<IStudentRepository, StudentRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
