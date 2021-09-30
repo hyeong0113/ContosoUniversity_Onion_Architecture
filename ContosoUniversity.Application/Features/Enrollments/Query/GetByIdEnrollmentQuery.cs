@@ -27,7 +27,7 @@ namespace ContosoUniversity.Application.Features.Enrollments.Query
 
             public async Task<EnrollmentDto> Handle(GetByIdEnrollmentQuery query, CancellationToken cancellationToken)
             {
-                var response = await _enrollmentRepository.GetByIdAsync(query.Id);
+                var response = await _enrollmentRepository.GetEnrollmentById(query.Id);
                 return _mapper.Map<EnrollmentDto>(response);
             }
         }
