@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity.Api", "Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity.Infrastructure", "ContosoUniversity.Infrastructure\ContosoUniversity.Infrastructure.csproj", "{ECDAAEDD-5956-4BCA-8F45-5040703FDFA5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity.UI", "ContosoUniversity.UI\ContosoUniversity.UI.csproj", "{62766EC1-6485-483C-AA94-64D7D58C7481}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{ECDAAEDD-5956-4BCA-8F45-5040703FDFA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECDAAEDD-5956-4BCA-8F45-5040703FDFA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECDAAEDD-5956-4BCA-8F45-5040703FDFA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62766EC1-6485-483C-AA94-64D7D58C7481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62766EC1-6485-483C-AA94-64D7D58C7481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62766EC1-6485-483C-AA94-64D7D58C7481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62766EC1-6485-483C-AA94-64D7D58C7481}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{74B4A93D-2EDB-4DC0-9941-2813A8702479} = {DAE66E48-EF22-453E-ACDA-F598BC7CB701}
 		{689C5A4F-F0FC-478D-B744-8B3AF0893506} = {392E0A4C-C8CC-480E-BC67-1D5DC4881694}
 		{ECDAAEDD-5956-4BCA-8F45-5040703FDFA5} = {D85327D7-F366-4E6E-B6C1-8067D0E51728}
+		{62766EC1-6485-483C-AA94-64D7D58C7481} = {392E0A4C-C8CC-480E-BC67-1D5DC4881694}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EA12C3FF-554E-4FDF-8CBD-7378BF089A80}
