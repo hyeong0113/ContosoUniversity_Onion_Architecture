@@ -1,5 +1,6 @@
 ﻿@page "/"
-@using ContosoUniversity.Application.Dtos
+@using ContosoUniversity.UI.Services.Base
+@using Services.Student
 @inject HttpClient Http
 
 <h1>Hello, world!</h1>
@@ -8,21 +9,10 @@ Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
 
-@if (student != null)
+@if (students != null)
 {
-    <h2>@student.LastName</h2>
-    <h2>@student.FirstName</h2>
-}
-
-@code {
-    StudentDto student { get; set; }
-    int id = 2;
-    protected override async Task OnInitializedAsync()
+    @foreach(StudentDto student in students)
     {
-        Console.WriteLine(Http.BaseAddress);
-        student = await Http.GetFromJsonAsync<StudentDto>($"api/Student/{id}");
+        <h2>@student.LastName</h2>
     }
-
-
-
 }

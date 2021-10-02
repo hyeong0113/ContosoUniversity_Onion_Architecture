@@ -1,3 +1,5 @@
+using ContosoUniversity.UI.Services.Base;
+using ContosoUniversity.UI.Services.Student;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,7 +19,17 @@ namespace ContosoUniversity.UI
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:5001/") });
+            //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:5001/") });
+            builder.Services.AddHttpClient<IBaseClient, BaseClient>(_ =>
+                new BaseClient(
+                    "https://localhost:5001",
+                    new HttpClient
+                    {
+                        BaseAddress = new Uri("https://localhost:5001")
+                    }
+                )
+             );
+            builder.Services.AddSingleton<StudentService>();
 
             await builder.Build().RunAsync();
         }

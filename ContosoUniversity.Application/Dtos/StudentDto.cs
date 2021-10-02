@@ -11,6 +11,6 @@ namespace ContosoUniversity.Application.Dtos
         public string FirstName { get; set; }
         public DateTime EnrollmentDate { get; set; }
 
-        public IEnumerable<EnrollmentDto> Enrollments { get; set; }
+        //public IEnumerable<EnrollmentDto> Enrollments { get; set; }
     }
 }
