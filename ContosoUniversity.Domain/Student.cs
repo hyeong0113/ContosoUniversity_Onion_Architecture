@@ -10,6 +10,6 @@ namespace ContosoUniversity.Domain
         public string FirstName { get; set; }
         public DateTime EnrollmentDate { get; set; }
 
-        //public IEnumerable<Enrollment> Enrollments { get; set; }
+        public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
 }
